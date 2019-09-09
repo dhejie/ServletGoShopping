@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ShopMapper">
+    <select id="findShopById" resultType="Shop" parameterType="java.lang.Integer">
+       select * from shop where id = #{id}
+    </select>
+    <update id="updateNum" parameterType="Shop">
+        update shop
+        <trim prefix="set" suffixOverrides=",">
+            <if test="num !=null">
+                num=#{num}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+</mapper>
